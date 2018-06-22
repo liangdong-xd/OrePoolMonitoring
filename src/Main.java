@@ -1,11 +1,17 @@
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("Start monitoring");
-        Monitoring.start();
-//        test();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                Monitoring.start();
+            }
+        }, 1000, 1000 * 60 * 5);// 设定指定的时间time,此处为2000毫秒
         System.out.println("Done");
-
     }
 
     public static void test(){
